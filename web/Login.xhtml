@@ -36,12 +36,9 @@ and open the template in the editor.
                 <p:panel header="INGRESO SISTEMA DE FACTURACIÓN" widgetVar="panel" >
                     <h:panelGrid columns="2" cellpadding="5">
                         <h:outputLabel for="usurio" value="Usuario" />
-                        <p:inputText id="usurio" value="#{loginBean.usuario.nombreUsuario}" placeholder="Usuario" required="true" label="usurio"
-                                     requiredMessage="Ingrese el usuario">
-                            <f:validateLength minimum="2"></f:validateLength>
-                            
-                        </inputText>
-
+                        <p:inputText id="usurio" value="#{loginBean.usuario.nombreUsuario}" placeholder="Usuario"  label="usuario">
+                            <f:validator validatorId="vlogin"></f:validator>               
+                        </p:inputText>
                         <h:outputLabel for="password" value="Password:" />
                         <p:password id="password" value="#{loginBean.usuario.password}" placeholder="Password" required="true" label="password"
                                     requiredMessage="Ingrese su contraseña"/>

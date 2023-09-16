@@ -59,6 +59,7 @@ public class LoginBean implements Serializable {
         this.usuario = datos.login(usuario);
 
         if (this.usuario != null) {
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", this.usuario.getNombreUsuario());
             loggedIn = true;
 
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido al sistema", this.usuario.getNombreUsuario());

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/09/2023 19:48:09 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sys.modelo.Detallefactura" table="detallefactura" catalog="facturacion" optimistic-lock="version">
+        <id name="codDetalle" type="java.lang.Integer">
+            <column name="codDetalle" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="factura" class="sys.modelo.Factura" fetch="select">
+            <column name="codFactura" not-null="true" />
+        </many-to-one>
+        <many-to-one name="producto" class="sys.modelo.Producto" fetch="select">
+            <column name="codProducto" not-null="true" />
+        </many-to-one>
+        <property name="codBarra" type="string">
+            <column name="codBarra" length="10" not-null="true" />
+        </property>
+        <property name="nombreProducto" type="string">
+            <column name="nombreProducto" length="75" not-null="true" />
+        </property>
+        <property name="cantidad" type="int">
+            <column name="cantidad" not-null="true" />
+        </property>
+        <property name="precioVenta" type="big_decimal">
+            <column name="precioVenta" precision="10" not-null="true" />
+        </property>
+        <property name="total" type="big_decimal">
+            <column name="total" precision="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
