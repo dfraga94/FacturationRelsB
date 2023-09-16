@@ -7,8 +7,8 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="resources/css/default.css"/>
-        <h:outputStylesheet name="resources/css/cssLayout.css"/>
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputStylesheet library="css" name="cssLayout.css"/>
         <title>Facelets Template</title>
     </h:head>
 
@@ -16,14 +16,15 @@
 
         <div id="top">
             <ui:insert name="top"></ui:insert>
+            <h1>SISTEMA DE FACTURACIÓN</h1>
             <div class="card">
                 <h:form>
                     <p:growl id="messages"/>
                     <p:menubar>
                         <p:submenu label="Inicio" icon="pi pi-fw pi-file">
-                            <p:menuitem value="Página Inicio" icon="pi pi-fw pi-trash"/>
+                            <p:menuitem value="Página Inicio" icon="pi pi-fw pi-trash" outcome="/views/Bienvenido"/>
                             <p:divider />
-                            <p:menuitem value="Salir" icon="pi pi-fw pi-external-link"/>
+                            <p:menuitem value="Salir" icon="pi pi-fw pi-external-link" action="#{loginBean.logout()}"/>
                         </p:submenu>
 
                         <p:submenu label="Cliente" icon="pi pi-fw pi-pencil">
